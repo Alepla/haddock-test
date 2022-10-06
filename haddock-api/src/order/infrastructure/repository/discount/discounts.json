@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "name": "2-for-1",
+        "validSince": "2021-09-20 09:34:00",
+        "validUntil": "2023-09-20 09:34:00",
+        "type": "2X1_PROMOTION",
+        "item": 12
+    },
+    {
+        "id": 2,
+        "name": "Spend X to save Y",
+        "validSince": "2021-09-20 09:34:00",
+        "validUntil": "2024-09-20 09:34:00",
+        "type": "DISCOUNT",
+        "over": 20,
+        "discount": 5
+    }
+]
