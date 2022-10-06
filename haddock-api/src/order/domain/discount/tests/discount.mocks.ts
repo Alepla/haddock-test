@@ -24,19 +24,25 @@ export const productsMock: OrderResponse[] = [
 
 export const discountMock: DiscountBase[] = [
     {
-        id: 1,
-        name: '2-for-1',
+        discountId: 1,
+        discountRef: {
+            id: 1,
+            name: '2-for-1',
+            type: '2X1_PROMOTION',
+        },
         validSince: '2021-09-20 09:34:00',
         validUntil: '2023-09-20 09:34:00',
-        type: '2X1_PROMOTION',
         item: 12,
     },
     {
-        id: 2,
-        name: 'Spend X to save Y',
+        discountId: 2,
+        discountRef: {
+            id: 2,
+            name: 'Spend X to save Y',
+            type: 'DISCOUNT',
+        },
         validSince: '2021-09-20 09:34:00',
         validUntil: '2024-09-20 09:34:00',
-        type: 'DISCOUNT',
         over: 20,
         discount: 5,
     },
@@ -44,22 +50,28 @@ export const discountMock: DiscountBase[] = [
 
 export const twoForOnediscountMock: DiscountBase[] = [
     {
-        id: 1,
-        name: '2-for-1',
+        discountId: 1,
+        discountRef: {
+            id: 1,
+            name: '2-for-1',
+            type: '2X1_PROMOTION',
+        },
         validSince: '2021-09-20 09:34:00',
         validUntil: '2023-09-20 09:34:00',
-        type: '2X1_PROMOTION',
         item: 12,
     },
 ];
 
 export const spendXtoSaveYdiscountMock: DiscountBase[] = [
     {
-        id: 2,
-        name: 'Spend X to save Y',
+        discountId: 2,
+        discountRef: {
+            id: 2,
+            name: 'Spend X to save Y',
+            type: 'DISCOUNT',
+        },
         validSince: '2021-09-20 09:34:00',
         validUntil: '2024-09-20 09:34:00',
-        type: 'DISCOUNT',
         over: 20,
         discount: 5,
     },
@@ -67,19 +79,51 @@ export const spendXtoSaveYdiscountMock: DiscountBase[] = [
 
 export const expierdDiscountMock: DiscountBase[] = [
     {
-        id: 1,
-        name: '2-for-1',
+        discountId: 1,
+        discountRef: {
+            id: 1,
+            name: '2-for-1',
+            type: '2X1_PROMOTION',
+        },
         validSince: '2021-09-20 09:34:00',
         validUntil: '2023-09-20 09:34:00',
-        type: '2X1_PROMOTION',
         item: 12,
     },
     {
-        id: 2,
-        name: 'Spend X to save Y',
+        discountId: 2,
+        discountRef: {
+            id: 2,
+            name: 'Spend X to save Y',
+            type: 'DISCOUNT',
+        },
         validSince: '2021-09-20 09:34:00',
         validUntil: '2022-04-20 09:34:00',
-        type: 'DISCOUNT',
+        over: 20,
+        discount: 5,
+    },
+];
+
+export const bothExpierdDiscountMock: DiscountBase[] = [
+    {
+        discountId: 1,
+        discountRef: {
+            id: 1,
+            name: '2-for-1',
+            type: '2X1_PROMOTION',
+        },
+        validSince: '2021-09-20 09:34:00',
+        validUntil: '2022-04-20 09:34:00',
+        item: 12,
+    },
+    {
+        discountId: 2,
+        discountRef: {
+            id: 2,
+            name: 'Spend X to save Y',
+            type: 'DISCOUNT',
+        },
+        validSince: '2021-09-20 09:34:00',
+        validUntil: '2022-04-20 09:34:00',
         over: 20,
         discount: 5,
     },

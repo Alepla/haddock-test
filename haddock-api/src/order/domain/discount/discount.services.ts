@@ -1,29 +1,21 @@
 import { OrderResponse } from '../order/order.entity';
-import {
-    DiscountBase,
-    ItemDiscount,
-    Promotion,
-    DiscountType,
-} from './discount.entity';
+import { DiscountBase, DiscountType } from './discount.entity';
 
 export const applyDiscount = (
     products: OrderResponse[],
     discounts: DiscountBase[],
     totalPrice: number,
-) => {
+): number => {
     const validDiscounts = validateDiscount(discounts);
     let total = totalPrice;
     validDiscounts.map((discount: DiscountBase): void => {
-        const type: DiscountType = discount.type as DiscountType;
+        const type: DiscountType = discount.discountRef.type as DiscountType;
         switch (type) {
             case '2X1_PROMOTION':
-                total =
-                    total -
-                    applyTwoXOnePromotion(products, discount as Promotion);
+                total = total - applyTwoXOnePromotion(products, discount);
                 break;
             case 'DISCOUNT':
-                total =
-                    total - applyItemDiscount(discount as ItemDiscount, total);
+                total = total - applyItemDiscount(discount, total);
                 break;
         }
     });
@@ -47,7 +39,7 @@ const validateDiscount = (discounts: DiscountBase[]): DiscountBase[] => {
 
 const applyTwoXOnePromotion = (
     products: OrderResponse[],
-    discount: Promotion,
+    discount: DiscountBase,
 ): number => {
     const product = products.find(
         (product: OrderResponse): boolean => product.number === discount.item,
@@ -60,7 +52,7 @@ const applyTwoXOnePromotion = (
 };
 
 const applyItemDiscount = (
-    discount: ItemDiscount,
+    discount: DiscountBase,
     totalPrice: number,
 ): number => {
     if (discount.over && totalPrice > discount.over) return discount.discount!;

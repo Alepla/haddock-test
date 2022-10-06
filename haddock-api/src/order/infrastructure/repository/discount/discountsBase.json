@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "name": "2-for-1",
+        "type": "2X1_PROMOTION"
+    },
+    {
+        "id": 2,
+        "name": "Spend X to save Y",
+        "type": "DISCOUNT"
+    }
+]

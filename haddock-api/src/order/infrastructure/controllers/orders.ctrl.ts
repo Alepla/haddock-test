@@ -7,7 +7,12 @@ const OrderController = async (
 ): Promise<void> => {
     const { body } = request;
     const { order } = body;
-    const bill = await saveOrder(order);
-    response.json(bill);
+    try {
+        const bill = await saveOrder(order);
+        response.json(bill);
+    } catch (err) {
+        response.status(500);
+        response.json(err);
+    }
 };
 export default OrderController;
