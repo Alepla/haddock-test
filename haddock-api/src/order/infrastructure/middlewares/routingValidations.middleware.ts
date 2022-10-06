@@ -1,6 +1,11 @@
 import express from 'express';
 import { validationResult, ValidationChain } from 'express-validator';
 
+/**
+ *
+ * @param validations
+ * @returns Middleware that is responsible for returning errors if the format of the request body is invalid.
+ */
 export const validate = (validations: ValidationChain[]) => {
     return async (
         req: express.Request,
