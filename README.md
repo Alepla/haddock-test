@@ -23,6 +23,7 @@ For this test I have decided to create just one api in Node with Express and Typ
 
 The estructure is the next one:
 
+```bash
 src/
 |-- order/
 | |-- application/ ----------------------------->The bridge between the domain layer and the infrastructure layer
@@ -60,3 +61,4 @@ src/
 | | |-- utils/
 | | | |-- ordersValidatorsChain.ts
 |-- index.ts
+```
