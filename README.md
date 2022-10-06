@@ -21,6 +21,8 @@ curl -d '{ "order": [ { "number":12, "quantity": 4 }, { "number":21, "quantity":
 
 For this test I have decided to create just one api in Node with Express and Type Script, with a hexagonal architecture or design pattern.
 
+For the discount model, I decided to create two jsons, one containing the information on discounts that persist over time or can be repeated, and then another json which contains the temporary discounts, discountBase is the parents and temporaryDiscount the children of these, in a relational database would be the same as saying that it is a one-to-many relationship, one being discountBase and many being temporalDiscounts. In this way, if you want to add new temporary discounts, we simply link them with an id to the parent.
+
 The estructure is the next one:
 
 ```bash
