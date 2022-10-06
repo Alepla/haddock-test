@@ -1,6 +1,6 @@
-# Prueba técnica Haddock
+# Haddock technical test
 
-## Instalación y ejecución de la `api`
+## Install and run the `api`
 
 ```bash
 cd haddock-api
@@ -8,7 +8,7 @@ npm i && npm run tsc && npm run start
 
 ```
 
-> Por defecto el servidor local de back se despliega en http://localhost:3000
+> By default the local back server is displayed at http://localhost:3000
 
 <br />
 <br />
@@ -17,18 +17,18 @@ npm i && npm run tsc && npm run start
 
 curl -d '{ "order": [ { "number":12, "quantity": 4 }, { "number":21, "quantity": 2 } ] }' -H "Content-Type: application/json" -X POST http://localhost:3000/order
 
-## Memoria
+## Memory
 
-Para esta prueba he decidido crear tan solo una api en Node con Express y Type Script, con una arquitectura o patrón de diseño hexagonal.
+For this test I have decided to create just one api in Node with Express and Type Script, with a hexagonal architecture or design pattern.
 
-La estructura es la siguiente:
+The estructure is the next one:
 
 src/
 |-- order/
-| |-- application/
+| |-- application/ ----------------------------->The bridge between the domain layer and the infrastructure layer
 | | |-- index.ts
 | | |-- orderUseCase.ts
-| |-- domain/
+| |-- domain/ ---------------------------------->Where is all the logic
 | | |-- discount/
 | | | |-- tests/
 | | | | |-- mocks/
@@ -43,9 +43,11 @@ src/
 | | | |-- order.entity.ts
 | | | |-- order.respository.ts
 | | | |-- order.service.ts
-| |-- infraestructure/
+| |-- infraestructure/-------------------------->The entry and exit point
 | | |-- controllers/
 | | | |-- orders.ctrl.ts
+| | |-- middlewares/
+| | | |-- routingValidations.middleware.ts
 | | |-- repository/
 | | | |-- discount/
 | | | | |-- discount.datasource.ts
@@ -55,4 +57,6 @@ src/
 | | | | |-- products.json
 | | |-- route/
 | | | |-- orders.route.ts
+| | |-- utils/
+| | | |-- ordersValidatorsChain.ts
 |-- index.ts
