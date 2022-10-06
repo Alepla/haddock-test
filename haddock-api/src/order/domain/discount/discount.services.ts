@@ -45,7 +45,7 @@ const applyTwoXOnePromotion = (
         (product: OrderResponse): boolean => product.number === discount.item,
     );
     if (product!.number === discount.item) {
-        const productDivide = product!.cantity / 2;
+        const productDivide = product!.quantity / 2;
         return product!.price * Math.trunc(productDivide);
     }
     return 0;

@@ -15,7 +15,7 @@ npm i && npm run tsc && npm run start
 
 ## Test
 
-curl -d '{ "order": [ { "number":12, "cantity": 4 }, { "number":21, "cantity": 2 } ] }' -H "Content-Type: application/json" -X POST http://localhost:3000/order
+curl -d '{ "order": [ { "number":12, "quantity": 4 }, { "number":21, "quantity": 2 } ] }' -H "Content-Type: application/json" -X POST http://localhost:3000/order
 
 ## Memoria
 

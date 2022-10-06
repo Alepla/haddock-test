@@ -1,18 +1,11 @@
 import saveOrder from '../../application';
 import { Response, Request } from 'express';
 
-const OrderController = async (
-    request: Request,
-    response: Response,
-): Promise<void> => {
-    const { body } = request;
-    const { order } = body;
+export const calculateOrder = async (request: Request, response: Response) => {
     try {
-        const bill = await saveOrder(order);
+        const bill = await saveOrder(request.body.order);
         response.json(bill);
     } catch (err) {
-        response.status(500);
-        response.json(err);
+        response.status(400).json({ errors: err });
     }
 };
-export default OrderController;

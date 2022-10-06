@@ -2,10 +2,10 @@ export interface OrderResponse {
     number: number;
     name: string;
     price: number;
-    cantity: number;
+    quantity: number;
 }
 
-export type Product = Omit<OrderResponse, 'cantity'>;
+export type Product = Omit<OrderResponse, 'quantity'>;
 
 export type Order = Omit<OrderResponse, 'price' | 'name'>;
 

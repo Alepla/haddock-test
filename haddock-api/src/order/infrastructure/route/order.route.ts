@@ -1,8 +1,10 @@
 import { Router } from 'express';
-import orderController from '../controllers/orders.ctrl';
+import { calculateOrder } from '../controllers/orders.ctrl';
+import { validate } from '../middlewares/routingValidations.middleware';
+import { calculateOrderValdiationChain } from '../utils/ordersValidatorsChain';
 
 const route = Router();
 
-route.post('/order', orderController);
+route.post('/order', validate(calculateOrderValdiationChain), calculateOrder);
 
 export default route;
